@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Homework 3 </title>
+</head>
+
+
+<body>
+
+  <form action= 'getSubreddits'>
+    SubReddit: {{input type="text" value=subreddit}}
+    <input type='submit' value="Submit">
+  </form>
+  
+<script type="template/handlebars" id="subreddit-list-template">
+  {{#each subredditResults}}
+    <div class="subreddit">
+
+      <h2>{{title}}</h2>
+      <p>{{score}}</p>
+      <p>{{num_comments}}<p>
+
+      {{#if archived === "true"}}
+      <p>Archived</p>
+      {{else}}
+      <p> Not Archived </p>
+      {{/if}}
+
+    </div>
+    {{else}}
+    <p> Nothing found </p>
+    {{/each}}
+    </script>
+
+  <div id="subreddit-list"></div>
+
+<script src="jquery-3.1.1.js"></script>
+<script src="handlebars-v4.0.5.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
